@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack forms vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 20px 0; /* Add vertical spacing between forms */
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .form-container input,
+        .form-container textarea,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-container button {
+            background: #8728a7;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background: #6a1b8c;
+        }
+    </style>
+<body>
+    <div class="form-container">
+        <h2>Add Product</h2>
+        <form action="/products/add" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Product Name" required><br>
+            <textarea name="description" placeholder="Description"></textarea><br>
+            <input type="number" name="price" placeholder="Price" required><br>
+            <input type="file" name="image" required><br>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Delete Product</h2>
+        <form action="/products/delete" method="POST">
+            <input type="number" name="id" placeholder="Product ID" required><br>
+            <button type="submit">Delete Product</button>
+        </form>
+    </div>
+</body>
+</html>
